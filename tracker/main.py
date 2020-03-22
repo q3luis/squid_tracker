@@ -7,6 +7,8 @@ DEFAULT_SIZE = (854,480 )
 
 # GOPR0792
 
+
+
 path  =  '/Users/luispeinado/workspaces/workspace_python/squid_tracker/data/GOPR0807.LRV.mp4'
 #path = "/Users/luispeinado/workspaces/workspace_python/squid_tracker/data/vlc-record-2020-03-21-18h10m29s-GOPR0823.MP4-.mp4"
 
