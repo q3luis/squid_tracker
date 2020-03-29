@@ -3,10 +3,11 @@
 import cv2
 import numpy as np
 
+from squid_tracker import *
+
 DEFAULT_SIZE = (854,480 )
 
 # GOPR0792
-
 
 
 path  =  '/Users/luispeinado/workspaces/workspace_python/squid_tracker/data/GOPR0807.LRV.mp4'
@@ -16,20 +17,26 @@ path  =  '/Users/luispeinado/workspaces/workspace_python/squid_tracker/data/GOPR
 
 #path  =  '/Users/luispeinado/workspaces/workspace_python/squid_tracker/data/GOPR0830.mp4'
 
-
+'''
 cap = cv2.VideoCapture(path)
 
 if (cap.isOpened()== False):
     print("  error vide no abiert")
 
-tracker = cv2.Tracker_create('MIL')
+#tracker = cv2.Tracker_create('MIL')
+
+fps = cap.get(cv2.CAP_PROP_FPS)
+
+print(f" fps {fps} ")
+
+
+tracker = cv2.TrackerMIL_create()
 
 ret, frame = cap.read()
 
 frame = cv2.resize(frame,DEFAULT_SIZE)
 
 grayImage = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-
 
 
 def inverse_color_img(image,th=20):
@@ -50,11 +57,6 @@ def capture_box_size():
         print(txt)
         txt = cv2.waitKey(10)
 
-
-
-
-
-
 blackAndWhiteImage = inverse_color_img(grayImage)
 
 #hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
@@ -66,17 +68,13 @@ print(" ret {} ".format(ret))
 
 ok = tracker.init(blackAndWhiteImage, bbox)
 
-
-capture_box_size()
+#capture_box_size()
 
 while(cap.isOpened()):
 
     ret, frame = cap.read()
 
     #frame = cv2.resize(frame,DEFAULT_SIZE)
-
-
-
 
     if ret == True:
         ### track erf box
@@ -105,14 +103,12 @@ while(cap.isOpened()):
         print(" ret {} ".format(ret))
 
 
-
-
 print("cap rel  {} ".format(cap.isOpened()))
 
 cap.release()
 
 
-
 cv2.destroyAllWindows()
 
-
+'''
+squid_tracker(path)
