@@ -45,6 +45,9 @@ class Metrics:
         t = self.num_frames/float(self.fps)
 
         return self.dist_move/t
+    def calculate_time(self):
+
+        return self.num_frames/float(self.fps)
 
     def update(self, box):
         '''

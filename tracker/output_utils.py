@@ -31,3 +31,10 @@ def show_image_box(frame, bbox, box):
     plot_box(frame, bbox, box)
 
     cv2.imshow('Frame',frame)
+
+def show_image(frame,cap):
+
+    n_frame = cap.get(cv2.CAP_PROP_POS_FRAMES)
+    print(f"number frame {n_frame} ")
+    cv2.putText(frame,f"frame:{n_frame}",(10,25), cv2.FONT_HERSHEY_SIMPLEX, 1,(255,255,255),2)
+    cv2.imshow('Frame',frame)
